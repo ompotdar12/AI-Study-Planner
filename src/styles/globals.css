@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme { --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif; }
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { margin: 0; min-width: 320px; font-family: var(--font-sans); background: #f8f6ff; }
+  button, input, select { font: inherit; }
+  button { cursor: pointer; }
+  label { display: grid; gap: .45rem; font-size: .8rem; font-weight: 700; color: #334155; }
+  input, select { min-height: 48px; width: 100%; border: 1px solid #cbd5e1; border-radius: .8rem; background: #fff; padding: .7rem .85rem; color: #0f172a; outline: none; }
+  input:focus, select:focus { border-color: #3566ff; box-shadow: 0 0 0 3px rgba(53, 102, 255, .18); }
+}
+
+@layer components {
+  .focus-ring { outline: none; }
+  .focus-ring:focus-visible { box-shadow: 0 0 0 3px rgba(53, 102, 255, .32); }
+  .primary-button { display: flex; min-height: 52px; width: 100%; align-items: center; justify-content: center; gap: .55rem; border: 0; border-radius: 1rem; background: #3566ff; color: white; font-size: .95rem; font-weight: 800; box-shadow: 0 10px 20px rgba(53, 102, 255, .22); transition: background .15s, transform .15s; }
+  .primary-button:hover { background: #2457ed; }
+  .primary-button:active { transform: translateY(1px); }
+  .primary-button:focus-visible { outline: 3px solid #9db5ff; outline-offset: 3px; }
+  .choice-card { display: flex; min-height: 72px; width: 100%; align-items: center; gap: .75rem; border: 1px solid #e2e8f0; border-radius: 1rem; background: white; padding: .75rem; text-align: left; font-size: .85rem; font-weight: 800; color: #334155; box-shadow: 0 2px 8px rgba(15, 23, 42, .04); }
+  .choice-card-active { border-color: #3566ff; background: #f1f5ff; color: #1749ca; box-shadow: 0 0 0 1px #3566ff; }
+  .icon-button { display: grid; min-height: 42px; min-width: 42px; place-items: center; border: 1px solid #e2e8f0; border-radius: .75rem; background: white; color: #475569; }
+  .icon-button:hover { background: #f8fafc; color: #1749ca; }
+  .icon-button:focus-visible { outline: 3px solid rgba(53, 102, 255, .32); outline-offset: 2px; }
+  .onboarding-content h1 { font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 900; line-height: 1.1; letter-spacing: -.03em; color: #123eae; }
+  .onboarding-content p { margin-top: .65rem; font-size: .9rem; line-height: 1.5; color: #64748b; }
+}

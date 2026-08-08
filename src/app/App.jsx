@@ -1,0 +1,17 @@
+import { useEffect, useState } from 'react'
+import SplashScreen from '../features/splash/SplashScreen'
+import OnboardingFlow from '../features/onboarding/OnboardingFlow'
+import DashboardShell from '../features/dashboard/shared/DashboardShell'
+
+export default function App() {
+  const [screen, setScreen] = useState('splash')
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setScreen('onboarding'), 1800)
+    return () => window.clearTimeout(timer)
+  }, [])
+
+  if (screen === 'splash') return <SplashScreen />
+  if (screen === 'onboarding') return <OnboardingFlow onComplete={() => setScreen('dashboard')} />
+  return <DashboardShell />
+}
