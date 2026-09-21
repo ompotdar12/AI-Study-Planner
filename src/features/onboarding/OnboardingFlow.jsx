@@ -10,7 +10,7 @@ function Illustration({ icon: Icon, label }) {
   return <div className="relative mx-auto grid size-40 place-items-center rounded-[40%] bg-gradient-to-br from-[#e8e1ff] via-[#f5efff] to-[#dff4ff] sm:size-48"><div className="grid size-20 place-items-center rounded-3xl bg-white shadow-lg"><Icon className="size-10 text-[#3566ff]" /></div><span className="absolute -bottom-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">{label}</span></div>
 }
 
-export default function OnboardingFlow({ onComplete }) {
+export default function OnboardingFlow({ onComplete, onSignUp }) {
   const [step, setStep] = useState(1)
   const [goal, setGoal] = useState('college')
   const [chosenSubjects, setChosenSubjects] = useState([])
@@ -35,7 +35,18 @@ export default function OnboardingFlow({ onComplete }) {
       <header className="flex items-center gap-4"><div className="flex-1"><div className="mb-2 flex justify-between text-xs font-bold text-[#3566ff]"><span>Step {step} of {total}</span><button type="button" onClick={onComplete} className="focus-ring rounded">Skip</button></div><ProgressBar current={step} total={total} /></div></header>
       <div className="flex flex-1 flex-col justify-center py-8"><div className="mx-auto w-full max-w-md space-y-6 onboarding-content">{content}</div></div>
       <button type="button" onClick={next} className="primary-button">{step === total ? 'Create my plan' : step === 1 ? 'Get Started' : 'Continue'}<ArrowRight className="size-5" /></button>
-      {step === 1 && <p className="mt-4 text-center text-xs text-slate-500">Already have an account? <button className="font-bold text-[#2457ed] focus-ring rounded">Sign In</button></p>}
+{step === 1 && (
+  <p className="mt-4 text-center text-xs text-slate-500">
+    New to Aura AI?{' '}
+    <button
+      type="button"
+      onClick={onSignUp}
+      className="font-bold text-[#2457ed] focus-ring rounded"
+    >
+      Sign Up
+    </button>
+  </p>
+)}
     </section>
   </main>
 }
