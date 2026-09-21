@@ -20,7 +20,7 @@ import AuraMark from '../../../shared/components/AuraMark'
 import StudyPlanner from '../../studyPlanner/StudyPlanner'
 import PerformanceAnalytics from '../../performanceAnalytics/PerformanceAnalytics'
 import Settings from '../../settings/Settings'
-import ProgressReport from '../../progressReport/ProgressReport'
+import ProgressReport from '../../progressReport/progressReport'
 
 const items = [
   [Home, 'Dashboard'],
